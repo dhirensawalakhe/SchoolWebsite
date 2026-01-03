@@ -25,7 +25,6 @@ export default function Footer() {
               Empowering hearing-impaired children with quality education and life skills for over 54 years.
             </p>
             <div className="inline-flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-              
               <span className="text-sm text-gray-400">Since 1970</span>
             </div>
           </div>
@@ -109,11 +108,21 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm text-center md:text-left">
-              © {new Date().getFullYear()} Mukbadhir Vidyamandir. All rights reserved.
-            </p>
-            <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <p className="text-gray-500 text-sm text-center md:text-left">
+                © {new Date().getFullYear()} Mukbadhir Vidyamandir. All rights reserved.
+              </p>
+              {/* Added Credit Line */}
+              <p className="flex items-center gap-1.5 text-lg text-gray-400 fontsize-sm">
+                Designed by 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 font-semibold">
+                  Dhiren Sawalakhe
+                </span>
+              </p>
+            </div>
+            
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 text-xs text-gray-500">
               <span className="bg-white/5 px-3 py-1 rounded-full">License: 0316</span>
               <span className="bg-white/5 px-3 py-1 rounded-full">UDISE: 27080110404</span>
               <span className="bg-white/5 px-3 py-1 rounded-full">Est. 10 Jan 1982</span>

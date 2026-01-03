@@ -1,4 +1,6 @@
 import { FileText, CheckCircle, Home, Users } from 'lucide-react';
+import girls_hostel from '../../assets/girls_hostel.jpeg';
+import boys_hostel from '../../assets/boys_hostel.jpeg';
 
 export default function AdmissionPage() {
   const documents = [
@@ -140,32 +142,54 @@ export default function AdmissionPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl text-center mb-12">Hostel Facilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
-                <Home className="text-blue-600" size={32} />
+            {/* Boys Hostel Card */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              {/* UPDATED IMAGE CONTAINER AND CLASSES */}
+              <div className="flex justify-center pt-8">
+                <img
+                  src={boys_hostel}
+                  alt="Boys Hostel"
+                  className="w-48 h-48 rounded-full object-cover border-4 border-black"
+                />
               </div>
-              <h3 className="text-2xl text-center mb-4">Boys Hostel</h3>
-              <ul className="space-y-2 text-gray-700">
-                <li>• Safe and secure accommodation</li>
-                <li>• Experienced hostel superintendent</li>
-                <li>• Nutritious meals</li>
-                <li>• Study and recreation facilities</li>
-                <li>• 24/7 supervision</li>
-              </ul>
+              <div className="p-8">
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <Home className="text-blue-600" size={32} />
+                </div>
+                <h3 className="text-2xl text-center mb-4">Boys Hostel</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Safe and secure accommodation</li>
+                  <li>• Experienced hostel superintendent</li>
+                  <li>• Nutritious meals</li>
+                  <li>• Study and recreation facilities</li>
+                  <li>• 24/7 supervision</li>
+                </ul>
+              </div>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <div className="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
-                <Home className="text-pink-600" size={32} />
+            {/* Girls Hostel Card */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              {/* UPDATED IMAGE CONTAINER AND CLASSES */}
+              <div className="flex justify-center pt-8">
+                <img
+                  src={girls_hostel}
+                  alt="Girls Hostel"
+                  className="w-48 h-48 rounded-full object-cover border-4 border-black"
+                />
               </div>
-              <h3 className="text-2xl text-center mb-4">Girls Hostel</h3>
-              <ul className="space-y-2 text-gray-700">
-                <li>• Safe and secure accommodation</li>
-                <li>• Dedicated female staff</li>
-                <li>• Nutritious meals</li>
-                <li>• Study and recreation facilities</li>
-                <li>• 24/7 supervision</li>
-              </ul>
+              <div className="p-8">
+                <div className="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <Home className="text-pink-600" size={32} />
+                </div>
+                <h3 className="text-2xl text-center mb-4">Girls Hostel</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Safe and secure accommodation</li>
+                  <li>• Dedicated female staff</li>
+                  <li>• Nutritious meals</li>
+                  <li>• Study and recreation facilities</li>
+                  <li>• 24/7 supervision</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

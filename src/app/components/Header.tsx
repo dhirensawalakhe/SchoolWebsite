@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Heart } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import Logo from './logo';
 
 export default function Header() {
@@ -40,13 +40,6 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              to="/donate"
-              className="ml-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition flex items-center gap-2"
-            >
-              <Heart size={18} fill="white" />
-              Donate
-            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -79,14 +72,6 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                to="/donate"
-                onClick={() => setIsMenuOpen(false)}
-                className="block bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-3 rounded-xl text-center flex items-center justify-center gap-2"
-              >
-                <Heart size={18} fill="white" />
-                Donate Now
-              </Link>
             </nav>
           </motion.div>
         )}

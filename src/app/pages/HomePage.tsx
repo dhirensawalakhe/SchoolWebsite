@@ -1,7 +1,7 @@
-import { ArrowRight, Check, Sparkles, Award, Users, BookOpen, Heart, GraduationCap, Lightbulb } from 'lucide-react';
+import { ArrowRight, Sparkles, Award, Users, BookOpen, Heart, GraduationCap, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import DonationBlock from '../components/DonationBlock';
+
 import { motion } from 'framer-motion';
 import schoolImg from '../../assets/school.jpeg';
 import p8 from '../../assets/p8.jpeg';
@@ -23,33 +23,33 @@ export default function HomePage() {
     { number: '54+', label: 'Years of Excellence', color: 'from-cyan-500 to-blue-600' },
     { number: '500+', label: 'Lives Transformed', color: 'from-orange-500 to-pink-600' },
     { number: '100%', label: 'Free Education', color: 'from-green-500 to-emerald-600' },
-    // { number: '50+', label: 'Dedicated Staff', color: 'from-purple-500 to-indigo-600' },
   ];
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section with Parallax Effect */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Hero Background Image (brightened) */}
+        {/* Hero Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center filter brightness-110"
           style={{ backgroundImage: `url(${schoolImg})` }}
         />
-
-        {/* Lighter overlay so background appears brighter */}
-        <div className="absolute inset-0 bg-black/20" />
 
         {/* Mesh Grid Overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
+            
+            {/* Left Column Spacer - Pushes content to the right on large screens */}
+            <div className="hidden lg:block"></div>
+
+            {/* Right Content */}
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-white"
+              className="text-white flex flex-col items-start lg:items-end lg:text-right"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -65,9 +65,9 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-6xl md:text-8xl mb-6 leading-tight"
+                className="text-6xl md:text-8xl mb-6 font-bold leading-tight"
               >
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
+                <span className="block text-white">
                   Mukbadhir
                 </span>
                 <span className="block text-white">Vidyamandir</span>
@@ -77,7 +77,7 @@ export default function HomePage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="text-2xl mb-3 text-cyan-200"
+                className="text-2xl mb-3 text-cyan-200 font-semibold"
               >
                 Wardhmaneri, Maharashtra
               </motion.p>
@@ -86,7 +86,7 @@ export default function HomePage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
-                className="text-lg mb-10 text-gray-300 leading-relaxed max-w-xl"
+                className="text-lg mb-10 text-gray-300 leading-relaxed max-w-xl lg:ml-auto"
               >
                 Breaking barriers through education. Empowering hearing-impaired students with knowledge, skills, and confidence to achieve their dreams.
               </motion.p>
@@ -95,7 +95,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.8 }}
-                className="flex flex-wrap gap-4"
+                className="flex flex-wrap gap-4 justify-start lg:justify-end"
               >
                 <Link
                   to="/admission"
@@ -106,54 +106,12 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </Link>
                 <Link
-                  to="/donate"
+                  to="/contact"
                   className="bg-white/10 backdrop-blur-xl text-white px-8 py-4 rounded-full hover:bg-white/20 transition border border-white/20 flex items-center gap-2"
                 >
-                  <Heart size={20} />
-                  Support Us
+                  Get in Touch
                 </Link>
               </motion.div>
-            </motion.div>
-
-            {/* Right Content - Feature Cards */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="relative hidden lg:block"
-            >
-              <div className="relative w-full h-[600px]">
-                {/* Floating Cards */}
-                <motion.div
-                  animate={{ y: [0, -20, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-0 right-0 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-2xl w-80"
-                >
-                  <Award className="text-cyan-400 mb-4" size={40} />
-                  <h3 className="text-white text-2xl mb-2">Recognized Excellence</h3>
-                  <p className="text-gray-300">Government recognized since 1982</p>
-                </motion.div>
-
-                <motion.div
-                  animate={{ y: [0, 20, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute top-40 left-0 bg-gradient-to-br from-orange-500/20 to-pink-600/20 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-2xl w-72"
-                >
-                  <Users className="text-orange-400 mb-4" size={40} />
-                  <h3 className="text-white text-2xl mb-2">Expert Care</h3>
-                  <p className="text-gray-300">Specialized educators and therapists</p>
-                </motion.div>
-
-                <motion.div
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                  className="absolute bottom-0 right-10 bg-gradient-to-br from-purple-500/20 to-indigo-600/20 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-2xl w-72"
-                >
-                  <GraduationCap className="text-purple-400 mb-4" size={40} />
-                  <h3 className="text-white text-2xl mb-2">Holistic Development</h3>
-                  <p className="text-gray-300">Academic & vocational training</p>
-                </motion.div>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -178,7 +136,7 @@ export default function HomePage() {
       {/* Stats Section */}
       <section className="py-20 bg-white relative">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -272,7 +230,7 @@ export default function HomePage() {
             className="text-center mb-20"
           >
             <h2 className="text-6xl mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Facilities</span>
+               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Facilities</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Everything your child needs to thrive and succeed
@@ -298,85 +256,6 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* News Section */}
-      <section className="py-32 bg-gradient-to-br from-gray-900 to-slate-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <h2 className="text-6xl mb-6">Latest Updates</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Stay informed about our achievements and upcoming events
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {[
-              {
-                image: p8,
-                title: "Annual Excellence Awards 2024",
-                description: "Celebrating outstanding achievements in academics and arts"
-              },
-              {
-                image: p19,
-                title: "New Learning Programs",
-                description: "Introducing advanced vocational training modules"
-              },
-              {
-                image: p24,
-                title: "Community Outreach",
-                description: "Building bridges with local communities"
-              }
-            ].map((news, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="group relative rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-500"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-                <ImageWithFallback
-                  src={news.image}
-                  alt={news.title}
-                  className="w-full h-72 object-cover"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 via-gray-900/95 to-transparent p-8 z-20">
-                  <h3 className="text-2xl mb-2">{news.title}</h3>
-                  <p className="text-gray-400">{news.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team section removed */}
-
-      {/* Donation Section */}
-      <section className="py-32 bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-200/50 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-200/50 rounded-full blur-[130px]"></div>
-
-        <div className="container mx-auto px-4 max-w-6xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <DonationBlock />
-          </motion.div>
         </div>
       </section>
 

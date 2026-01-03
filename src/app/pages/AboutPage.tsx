@@ -2,7 +2,7 @@ import { Heart, Users, Award, Target, Sparkles, TrendingUp, School } from 'lucid
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { motion } from 'framer-motion';
 import school from '../../assets/school.jpeg';
-import school1 from '../../assets/school1.jpeg';
+import school2 from '../../assets/school2.jpeg';
 
 export default function AboutPage() {
   const values = [
@@ -259,7 +259,7 @@ export default function AboutPage() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity z-10"></div>
               <ImageWithFallback
-                src={school1}
+                src={school2}
                 alt="School Building"
                 className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-700"
               />
