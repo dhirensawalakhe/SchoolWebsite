@@ -1,4 +1,4 @@
-import { MapPin, Users, BookOpen, User } from 'lucide-react';
+import { MapPin, Users, BookOpen, Award, CheckCircle } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import anantaImg from '../../assets/ananta.jpeg';
 import babanImg from '../../assets/baban.jpeg';
@@ -8,6 +8,7 @@ import patekarImg from '../../assets/patekar.jpeg';
 import shamImg from '../../assets/sham.jpeg';
 import vaibhavImg from '../../assets/vaibhav.jpeg';
 import vigneImg from '../../assets/vigne.jpeg';
+import certificateImg from '../../assets/certificate.jpeg';
 
 export default function SchoolInfoPage() {
   const staff = [
@@ -53,6 +54,51 @@ export default function SchoolInfoPage() {
               <MapPin className="text-blue-600 mb-4" size={40} />
               <h3 className="text-xl mb-2">Location</h3>
               <p className="text-gray-700">Wardhmaneri, Tal. Arvi, Dist. Wardha</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Awards & Recognition Section */}
+      <section className="py-16 bg-blue-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl text-center mb-12">Awards & Recognition</h2>
+          <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="flex flex-col md:flex-row items-center">
+              <div className="w-full md:w-2/5 p-8 bg-gray-100 flex justify-center">
+                <div className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                  <img 
+                    src={certificateImg} 
+                    alt="Dr. Babasaheb Ambedkar Dalit-Mitra Award" 
+                    className="relative w-full max-w-[300px] h-auto shadow-2xl rounded-sm border-4 border-white"
+                  />
+                </div>
+              </div>
+              <div className="w-full md:w-3/5 p-8 md:p-12">
+                <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-4 py-1 rounded-full text-sm font-semibold mb-6">
+                  <Award size={16} />
+                  <span>State Government Honor</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Dr. Babasaheb Ambedkar Dalit-Mitra Award
+                </h3>
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  Shri Sant Bhanudas Maharaj Sanstha, Wardhmaneri, was honored by the 
+                  <strong> Government of Maharashtra (Social Welfare Department)</strong> with this 
+                  prestigious award for the year <strong>1999–2000</strong>.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="text-green-600 mt-1 flex-shrink-0" size={20} />
+                    <p className="text-gray-600">Recognized for invaluable contributions to the welfare of the weaker sections of society.</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="text-green-600 mt-1 flex-shrink-0" size={20} />
+                    <p className="text-gray-600">Commended for dedicated efforts toward the all-round development and upliftment of students.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
