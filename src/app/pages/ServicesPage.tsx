@@ -1,5 +1,6 @@
 import { GraduationCap, Heart, Palette, Users } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { motion } from 'framer-motion';
 import p19 from '../../assets/p19.jpeg';
 import p18 from '../../assets/p18.jpeg';
 import p37 from '../../assets/p37.jpeg';
@@ -51,18 +52,18 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section - Updated to 2 columns on mobile */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl text-center mb-12">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div key={index} className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition">
-                  <Icon className="text-blue-600 mb-4" size={48} />
-                  <h3 className="text-2xl mb-4">{service.title}</h3>
-                  <p className="text-gray-700">{service.description}</p>
+                <div key={index} className="bg-white p-4 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+                  <Icon className="text-blue-600 mb-4 w-8 h-8 md:w-12 md:h-12" />
+                  <h3 className="text-lg md:text-2xl mb-2 md:mb-4 font-bold">{service.title}</h3>
+                  <p className="text-sm md:text-base text-gray-700">{service.description}</p>
                 </div>
               );
             })}
@@ -131,35 +132,24 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Facilities Highlights */}
+      {/* Key Facilities - Updated to 2 columns on mobile */}
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl text-center mb-12">Key Facilities</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-xl mb-3">Speech Therapy Room</h3>
-              <p className="text-gray-600">Dedicated space with modern equipment for speech therapy sessions</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-xl mb-3">Hearing Aids</h3>
-              <p className="text-gray-600">Free provision of hearing aids to students who need them</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-xl mb-3">Educational Materials</h3>
-              <p className="text-gray-600">Free educational materials and learning aids for all students</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-xl mb-3">Nutritious Meals</h3>
-              <p className="text-gray-600">Hygienic and nutritious meal facilities for all students</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-xl mb-3">Medical Unit</h3>
-              <p className="text-gray-600">Institutional medical unit for health monitoring and care</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-xl mb-3">Safety & Security</h3>
-              <p className="text-gray-600">CCTV cameras throughout campus for student safety</p>
-            </div>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+            {[
+              { title: 'Speech Therapy Room', desc: 'Dedicated space with modern equipment for speech therapy sessions' },
+              { title: 'Hearing Aids', desc: 'Free provision of hearing aids to students who need them' },
+              { title: 'Educational Materials', desc: 'Free educational materials and learning aids for all students' },
+              { title: 'Nutritious Meals', desc: 'Hygienic and nutritious meal facilities for all students' },
+              { title: 'Medical Unit', desc: 'Institutional medical unit for health monitoring and care' },
+              { title: 'Safety & Security', desc: 'CCTV cameras throughout campus for student safety' },
+            ].map((facility, index) => (
+              <div key={index} className="bg-white p-4 md:p-6 rounded-lg shadow">
+                <h3 className="text-sm md:text-xl mb-2 md:mb-3 font-bold">{facility.title}</h3>
+                <p className="text-xs md:text-base text-gray-600">{facility.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -12,46 +12,22 @@ export default function GalleryPage() {
   const categories = ['all', 'events', 'classrooms', 'activities', 'facilities'];
 
   const photos = [
-    {
-      src: {p19},
-      title: 'School Entrance',
-      category: 'facilities',
-      
-    },
-    {
-      src: {p16},
-      title: 'Classroom Learning',
-      category: 'classrooms',
-    },
-    {
-      src: {p22},
-      title: 'Students Studying',
-      category: 'activities',
-    },
-      
-    {
-      src: {p27},
-      title: 'Playground',
-      category: 'facilities',
-    },
-   
-      
+    { src: p19, title: 'School Entrance', category: 'facilities' },
+    { src: p16, title: 'Classroom Learning', category: 'classrooms' },
+    { src: p22, title: 'Students Studying', category: 'activities' },
+    { src: p27, title: 'Playground', category: 'facilities' },
   ];
 
-  // Attempt to load local images named p1..p37 from src/assets (p1.jpg/png/jpeg/webp)
-  // If a local image is missing, use a stable placeholder from picsum.photos
   const localModules = (import.meta as any).glob('/src/assets/p*.{png,jpg,jpeg,webp}', { eager: true, query: '?url', import: 'default' }) as Record<string, string>;
 
   const localPhotos: { src: string; title: string; category: string }[] = [];
   for (let i = 1; i <= 37; i++) {
     const baseName = `p${i}`;
-    // determine category based on requested mapping
     let category = 'facilities';
     if (i >= 22 && i <= 32) category = 'events';
     else if ((i >= 1 && i <= 7) || i === 16 || i === 17) category = 'activities';
     else if (i >= 34 && i <= 37) category = 'classrooms';
 
-    // find matching key (case-insensitive)
     const matchKey = Object.keys(localModules).find((k) =>
       k.toLowerCase().endsWith(`/${baseName}.jpg`) ||
       k.toLowerCase().endsWith(`/${baseName}.jpeg`) ||
@@ -62,12 +38,10 @@ export default function GalleryPage() {
     if (matchKey) {
       localPhotos.push({ src: localModules[matchKey], title: baseName, category });
     } else {
-      // stable placeholder using seed (i) so images remain consistent across reloads
       localPhotos.push({ src: `https://picsum.photos/seed/gallery-${i}/1200/800`, title: baseName, category });
     }
   }
 
-  // Include optional facility images l1 and l2 if present in assets
   ['l1', 'l2'].forEach((name) => {
     const key = Object.keys(localModules).find((k) =>
       k.toLowerCase().endsWith(`/${name}.jpg`) ||
@@ -78,18 +52,12 @@ export default function GalleryPage() {
     if (key) localPhotos.push({ src: localModules[key], title: name, category: 'facilities' });
   });
 
-  // Use local p1..p37 photos as the gallery source
   const allPhotos = [...localPhotos];
 
-  // Apply sorting based on selected sortOrder
   const sortedPhotos = (() => {
     const list = [...allPhotos];
-    if (sortOrder === 'name-asc') {
-      return list.sort((a, b) => a.title.localeCompare(b.title));
-    }
-    if (sortOrder === 'name-desc') {
-      return list.sort((a, b) => b.title.localeCompare(a.title));
-    }
+    if (sortOrder === 'name-asc') return list.sort((a, b) => a.title.localeCompare(b.title));
+    if (sortOrder === 'name-desc') return list.sort((a, b) => b.title.localeCompare(a.title));
     if (sortOrder === 'category-asc') {
       return list.sort((a, b) => {
         const c = a.category.localeCompare(b.category);
@@ -110,7 +78,6 @@ export default function GalleryPage() {
       ? sortedPhotos
       : sortedPhotos.filter((photo) => photo.category === selectedCategory);
 
-  // Video list - include user provided YouTube link (converted to embed URL)
   const videos = [
     {
       id: 'LztGxRxIDLA',
@@ -166,10 +133,10 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Photo Gallery */}
+      {/* Photo Gallery - Updated to 2 columns for mobile */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
             {filteredPhotos.map((photo, index) => (
               <div
                 key={index}
@@ -178,10 +145,10 @@ export default function GalleryPage() {
                 <ImageWithFallback
                   src={photo.src}
                   alt={photo.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition duration-300"
+                  className="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                  <h3 className="text-white text-xl">{photo.title}</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-3 md:p-4">
+                  <h3 className="text-white text-sm md:text-xl font-bold">{photo.title}</h3>
                 </div>
               </div>
             ))}
@@ -193,7 +160,6 @@ export default function GalleryPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl text-center mb-12">Video Gallery</h2>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
             {videos.map((v) => (
               <div key={v.id} className="rounded-lg overflow-hidden shadow-lg">
@@ -213,7 +179,6 @@ export default function GalleryPage() {
               </div>
             ))}
           </div>
-
           <div className="max-w-4xl mx-auto">
             <div className="bg-white p-8 rounded-lg shadow-lg text-center">
               <p className="text-gray-700">
@@ -227,7 +192,7 @@ export default function GalleryPage() {
       {/* Achievements Banner */}
       <section className="py-16 bg-gradient-to-r from-blue-700 to-blue-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl mb-6">Student Achievements</h2>
+          <h2 className="text-4xl mb-6 font-bold">Student Achievements</h2>
           <p className="text-xl max-w-3xl mx-auto">
             Our students have showcased remarkable talents in art, handicraft, sports, and various competitions
           </p>

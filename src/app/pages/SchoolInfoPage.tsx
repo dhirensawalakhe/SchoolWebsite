@@ -140,20 +140,22 @@ export default function SchoolInfoPage() {
         </div>
       </section>
 
-      {/* Staff Section */}
+      {/* Staff Section - Updated to 2 columns for mobile/tablet */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl text-center mb-12">Our Dedicated Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {staff.map((member, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition">
-                <div className="w-32 h-32 rounded-full mx-auto mb-4 p-1 bg-black">
+              <div key={index} className="bg-white p-4 md:p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition">
+                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto mb-4 p-1 bg-black">
                   <div className="w-full h-full rounded-full overflow-hidden">
                     <ImageWithFallback src={member.image as string} alt={member.name} className="w-full h-full object-cover" />
                   </div>
                 </div>
-                <h3 className="text-lg mb-2">{member.name}</h3>
-                <p className="text-gray-600">{member.position}</p>
+                <h3 className="text-base md:text-lg mb-1 md:mb-2 font-semibold md:font-normal leading-tight">
+                  {member.name}
+                </h3>
+                <p className="text-sm md:text-gray-600">{member.position}</p>
               </div>
             ))}
           </div>
