@@ -13,11 +13,11 @@ export default function AdmissionPage() {
   ];
 
   const facilities = [
-    'Free education for hearing-impaired students',
-    'Free boarding and lodging',
+    'Education for hearing-impaired students',
+    'Boarding and lodging',
     'Nutritious and hygienic meals',
-    'Free educational materials',
-    'Hearing aids (if needed)',
+    'Educational materials',
+    'Hearing aids',
     'Medical care and support',
   ];
 
@@ -124,7 +124,7 @@ export default function AdmissionPage() {
       {/* Facilities Provided */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl text-center mb-12">Facilities Provided</h2>
+          <h2 className="text-4xl text-center mb-12"> Free Facilities Provided</h2>
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {facilities.map((facility, index) => (
