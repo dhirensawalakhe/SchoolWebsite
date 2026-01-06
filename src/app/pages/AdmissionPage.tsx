@@ -141,7 +141,7 @@ export default function AdmissionPage() {
       {/* Hostel Facilities - Set to 2 Columns on Mobile */}
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl text-center mb-12">Hostel Facilities</h2>
+          <h2 className="text-4xl text-center mb-12">Free Hostel Facilities</h2>
           <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-6xl mx-auto">
             {/* Boys Hostel Card */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center">
